@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-box">
+      <div class="dashboard-header">
+        <h1><i class="fas fa-camera-retro"></i> Dashboard</h1>
+        <a href="{{ url_for('login') }}" class="logout-btn">Logout</a>
+      </div>
+
+      <form class="add-form" method="post" action="{{ url_for('add_entry') }}">
+        <h2>Add New Password</h2>
+        <input type="text" name="site_name" placeholder="Website Or App Name" required />
+        <input type="text" name="site_url" placeholder="Website URL (optional)" />
+        <input type="text" name="login_username" placeholder="Username or Email" required />
+        <input type="text" name="login_password" placeholder="Password" required />
+        <button type="submit" class="save-btn">Save</button>
+      </form>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="flash {{ category }}">{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      <div class="password-list">
+        <h2>Saved Passwords</h2>
+        <ul>
+          {% for entry in entries %}
+            <li>
+              <div class="entry-text">
+                <strong>{{ entry.site_name }}</strong>
+                {% if entry.site_url %}
+                  (<a href="{{ entry.site_url }}" target="_blank" style="color: lightblue;">Visit</a>)
+                {% endif %}
+                — {{ entry.login_username }} —
+                <span class="password" data-password="{{ entry.login_password }}">********</span>
+              </div>
+              <div>
+                <button type="button" class="toggle-password">Show</button>
+                <button type="button" class="copy-password" data-copy="{{ entry.login_password }}">Copy</button>
+                <form method="POST" action="{{ url_for('delete_entry', entry_id=entry.id) }}" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this password?');">
+                  <button type="submit">Delete</button>
+                </form>
+                <a href="{{ url_for('edit_entry', entry_id=entry.id) }}">
+                  <button type="button">Edit</button>
+                </a>
+              </div>
+            </li>
+          {% else %}
+            <li>No saved passwords yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle-password').forEach(button => {
+      button.addEventListener('click', function () {
+        const span = this.closest('li').querySelector('.password');
+        const pwd = span.getAttribute('data-password');
+        if (span.textContent === '********') {
+          span.textContent = pwd;
+          this.textContent = 'Hide';
+        } else {
+          span.textContent = '********';
+          this.textContent = 'Show';
+        }
+      });
+    });
+
+    document.querySelectorAll('.copy-password').forEach(button => {
+      button.addEventListener('click', function () {
+        const pwd = this.getAttribute('data-copy');
+        navigator.clipboard.writeText(pwd).then(() => {
+          this.textContent = 'Copied';
+          setTimeout(() => { this.textContent = 'Copy'; }, 1500);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

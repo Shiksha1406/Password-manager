@@ -1,0 +1,124 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b1c2b; /* Dark navy */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Login box */
+.login-box {
+  background-color: #182c3d;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Lock icon */
+.icon-lock {
+  color: #4e9fd1;
+  margin-bottom: 20px;
+}
+
+/* Heading */
+.login-box h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Input fields */
+.login-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #243f57;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.login-box input:focus {
+  outline: 2px solid #4e9fd1;
+}
+
+/* Button */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background: #4e9fd1;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background: #3183b4;
+  transform: scale(1.10);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.switch-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #a0b9d6;
+}
+
+.switch-link a {
+  color: #4e9fd1;
+  text-decoration: none;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+/* Optional: hover effect for Font Awesome icon */
+.icon-lock:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.flash {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+.flash.error {
+  background-color: #dc3545;
+}

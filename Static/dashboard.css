@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background-color: #0b1c2b;
+}
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard-box {
+  background-color: #182c3d;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  font-size: 24px;
+}
+
+.logout-btn {
+  background-color: #6cb4ff;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #4e9fd1;
+}
+
+.add-form h2 {
+  margin-bottom: 10px;
+}
+
+.add-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background-color: #20394f;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 15px;
+}
+
+.add-form input::placeholder {
+  color: #a0aebf;
+}
+
+.save-btn {
+  background-color: #6cb4ff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #4e9fd1;
+  transform: scale(1.10);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.password-list {
+  margin-top: 30px;
+}
+
+.password-list h2 {
+  margin-bottom: 10px;
+}
+
+.password-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.password-list li {
+  background-color: #20394f;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.entry-text {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-right: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="button"] {
+  background: #4e9fd1;
+  color: white;
+}
+
+.copy-password {
+  background-color: #22c55e;
+}
+
+form button[type="submit"] {
+  background: #4e9fd1;
+  color: white;
+}
+
+form button:hover{
+  background-color: red;
+}
+
+button:hover{
+  background-color: red;
+}
+
+.flashes {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.flash {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+.flash.error {
+  background-color: #dc3545;
+}
